@@ -9,5 +9,7 @@ int main () {
 
     printf("%i", n);
 
+    printf("da goat");
+
     return 0;
 }
