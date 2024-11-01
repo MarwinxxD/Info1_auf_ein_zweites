@@ -1,9 +1,63 @@
 \documentclass{article}
+
 \usepackage{enumerate}
+\usepackage[automark]{scrlayer-scrpage}  % Seiten-Stil für scrartcl
+\usepackage[english,ngerman]{babel}      % Mehrsprachenumgebung, Hauptsprache Deutsch
+\usepackage{setspace}                    % Zeilenabstand
+\usepackage{latexsym}                    % Latex-Symbole
+\usepackage{amsfonts,amssymb,amstext}    % Mathematische Formeln
+\usepackage{bbm}                         % bbm Schriftart
+\usepackage{graphicx}                    % Abbildungen einbinden
+\usepackage{listings}					%Programmcode einbingen
+\usepackage{xcolor}						% Farben
+\usepackage{changepage}
+
+\newcommand{\codeind}[1]{\begin{adjustwidth}{3.5mm}{}#1\end{adjustwidth}}
+\newcommand{\includecode}[1]{\codeind{\lstinputlisting[style=codestyle, language=C]{"src/#1"}}}
+\newcommand{\includecodewithfilename}[1]{Datei: \texttt{#1}\vspace*{-1.5mm}\includecode{#1}}
+\newcommand{\ownline}{\vspace{.7em}\hrule\vspace{.7em}} 
+\newcommand{\aufgabe}[1]{\section*{Aufgabe #1}}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codeblue}{rgb}{0.0, 0.0, 1.0}
+\definecolor{bgcolour}{rgb}{0.97,0.97,0.97}
+\definecolor{codered}{rgb}{0.7, 0.13, 0.13}
+
+\lstdefinestyle{codestyle}{
+	backgroundcolor=\color{bgcolour},
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{codeblue},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codered},
+	basicstyle=\ttfamily,
+	numberstyle=\ttfamily\tiny\color{codegray},
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,
+	extendedchars=true                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=4	
+}
+\lstset{literate=%
+	{Ö}{{\"O}}1
+	{Ä}{{\"A}}1
+	{Ü}{{\"U}}1
+	{ß}{{\ss}}1
+	{ü}{{\"u}}1
+	{ä}{{\"a}}1
+	{ö}{{\"o}}1
+}
+
 \begin{document}
-  \raggedright Aufgabe5 \\
+  \raggedright Aufgabe5 
   \begin{enumerate}[a)]
     \item
-        ich weiß das doch nicht
+      tung."\\(https://www.bundestag.de/resource/blob/940164/51d5380e12b3e121af9937bc69afb6a7/WD-5-001-23-pdf-data.pdf Stand 27.10.2024)
   \end{enumerate}
 \end{document} 
