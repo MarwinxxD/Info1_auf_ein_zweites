@@ -39,5 +39,24 @@ int main(void)
 }
 
 int string_index_of_sequence(char v[], char find[]){
-	/*Fügen Sie hier den Code ein.*/
+	int i = 0;
+    int x = 0;
+    for(i = 0; i < (int)strlen(v); i++){
+        x = 0;
+        if(v[i] == find[x]){
+            for(x = 1; x < (int)strlen(find); x++){
+                if(v[i+x-1] != find[x]){
+                    printf("\nsind ungleich %c %c", v[i+x],find[x]);
+
+                    break;
+                }
+            }
+            if(x == (int)strlen(find)-1){
+                return i;
+            }
+            else x = 0;
+        }
+
+    }
+    return -1;
 }

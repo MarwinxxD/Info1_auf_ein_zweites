@@ -35,6 +35,13 @@ int main(void)
 
 void string_replace_char(char v[], char find, char replace)
 {
-	/*Fügen Sie hier den Code ein.*/
+    int i = 0;
+
+	while(v[i]){
+        if(v[i] == find){
+            v[i] = replace;
+        }
+        i++;
+    }
 }
 

@@ -29,5 +29,11 @@ int main(void)
 }
 
 void string_tolower(char v[]){
-	 
+	 int i = 0;
+     while(v[i]){
+        if(v[i] < 91 && v[i] > 64){
+            v[i] += 32;
+        }
+        i++;
+     }
 }
