@@ -1,0 +1,15 @@
+a:
+Fetch:
+Lade den Inhalt P1 von PC nach AM und Lade den Befehl aus dem Speicherwerk von P1 über RM nach IR.
+Erhöhe PC um 1.
+Decote:
+Erkenne, dass die Adresse S3 initiiert wird.
+eine Eingabe gibt es nicht.
+Execute:
+(V) Führe die Initiierung aus.
+Write-Back:
+Es gbit keine Ausgabe.
+
+b:
+Fetch:
+Lade den Inhalt P3 von Pc nach AM und Lade den Befehl aus dem Speicherwerk von P3 über RM nach IR.
