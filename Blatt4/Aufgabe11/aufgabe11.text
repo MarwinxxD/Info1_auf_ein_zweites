@@ -1,0 +1,37 @@
+Aufgabe a:
+Wenn S1 und S2 nicht negativ sind, spiegelt das Programm eine Muliplikation dieser 2 Zahlen wieder. 
+Dabei wird für S2 größer Null S1 S2 mal auf S3 addiert und S3 zurückgegeben.
+
+b:
+Das Programm schaut ob ob der Wert an S1 ungerade oder gerade ist. 
+Für eine nicht negative Zahl an S1 wird für eine gerade Zahl 1 und für eine ungerade Zahl 0 zurückgegeben.
+Dabei wird geschaut ob S1 negativ oder Null ist und ansonsten immer wieder mit 2 subtrahiert.
+
+c:
+P1: SPRUNG0 P3, S1
+P2: RÜCKGABE D1
+P3: SPRUNG0 P5, S2
+P4: RÜCKGABE D1
+P5: RÜCKGABE D2
+D1: 1
+D2: 0
+
+d:
+P1: SUB S1, D3
+P2: SPRUNGNEG P5, S1
+P3: SUB S1, D4
+P4: SPRUNGNEG P6, S1
+P5: RÜCKGABE D2
+P6: RÜCKGABE D1
+D1: 1
+D2: 0
+D3: 48
+D4: 10
+
+48 ist der ASCII-Code von der '0', deswegen wird erst S1 mit 48 subtrahiert und hat S1 einen 
+kleineren Wert als 48 wird somit mit dem SPRUNGNEG zu P5 gesprungen wodurch eine 0 zurückgegeben wird.
+da es 10 Ziffern gibt wird nun S1 mit 10 subtrahiert. Wenn S1 anfangs einen Wert größer als 57 hatte
+liegt jetzt ein positiver Wert vor wodurch im nächsten SPRUNGNEG nicht gesprungen wird und danach 0 zurückgegeben wird.
+Ist S1 nach der Subtraktion mit 10 ein negativer Wert wird gesprungen und 1 zurückgegeben,
+da sie dann ursprünglich einen ASCII-Code von einer arabischen Ziffer darstellte.
+Da dieser ursprüngliche Wert nicht gebraucht wird macht es nichts aus S1 einfach zu überschreiben.
