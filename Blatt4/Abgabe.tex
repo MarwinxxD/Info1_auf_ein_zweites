@@ -25,7 +25,7 @@
 
 % Definition von Befehlen, um die Vorlage nützlicher und verständlicher zu machen
 \newcommand{\codeind}[1]{\begin{adjustwidth}{3.5mm}{}#1\end{adjustwidth}}
-\newcommand{\includecode}[1]{\codeind{\lstinputlisting[style=codestyle, language=C]{"src/#1"}}}
+\newcommand{\includecode}[1]{\lstinputlisting[style=codestyle, language=C]{"src/#1"}}
 \newcommand{\includecodewithfilename}[1]{Datei: \texttt{#1}\vspace*{-1.5mm}\includecode{#1}}
 \newcommand{\ownline}{\vspace{.7em}\hrule\vspace{.7em}} 
 \newcommand{\aufgabe}[1]{\section*{Aufgabe #1}}
@@ -113,11 +113,47 @@ Institut für Informatik \\
 	\item[c)]
         \textbf{Fetch:} Schreibe den Ihnhalt P2 von PC nach AM
 		und lade den Befehl aus dem Speichrewerk von P2 nach RM nach IR.
-		Erhöhe den Befehlszähler um 1.
+		Erhöhe den Befehlszähler um 1.\\
 		\textbf{Decode:} Erkenne, dass es sich um den Befhel SPRUNG0 handelt,
 		mit dem Sprungziel P6.
-		Lade den Ihnhalt von S1 von RM nach AR für die Überprüfung.
+		Lade den Ihnhalt von S1 von RM nach AR für die Überprüfung.\\
+		\textbf{Execute:} Führe die SRUNG0-Funktion aus. Wenn der Wert im Eingabe-AR ist, überschreibe PC mit der Zieladresse P6.\\
 \end{enumerate}
+
+\aufgabe{11}
+\begin{enumerate}
+	\item[a)] Das Programm multipliziert S1 mit S2.
+	\item[b)] Es wird überpfüft ob S1 gerade oder ungerade ist (wenn gerade ist S2 1 und wenn ungerade 0).
+	\item[c)]
+	P1 SPRUNG0 P3, S1\\
+	P2 RÜCKGABE 1\\
+	P3 SPRUNG0 P5, S2\\
+	P4 RÜCKGABE 1\\
+	P5 RÜCKGABE 0
+	\item[d)]
+	P1: INIT S2\\
+	P2: ADD S2 D2\\
+	P3: SPRUNG0 P7, S2 \textcolor{green}{eine for-schleife zum gucken ob S1 kleiner 48(ascii 0)}\\
+	P4: DEKREMENT S2\\
+	P5: DEKREMENT S1\\
+	P6: SPRUNG P3\\
+	P7: SPRUNGNEG P16, S1\\
+	P8: INIT S3\\
+	P9: ADD S3, D3\\
+	P10: SPRUNG0 P14, S3
+	P11: DEKREMENT S3\\ 
+	P12: DEKREMENT S1\\
+	P13: SPRUNG P10\textcolor{green}{ eine for-schleife zum gucken ob S1 größer 57(ascii 9)}\\
+	P14: SPRUNGNEG P16, S1\\
+	P15: RÜCKGABE 1\\
+	P16: RÜCKGABE 0\\
+	D2: 48\\
+	D3: 9
+\end{enumerate}
+\aufgabe{12}
+\includecodewithfilename{12a.c}
+\includecodewithfilename{12b.c}
+\includecodewithfilename{12c.c}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
