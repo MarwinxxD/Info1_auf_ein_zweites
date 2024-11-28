@@ -34,6 +34,5 @@ int string_compare(char v[], char w[]) {
                 }
                 i++;
         }
-        return v[i] - w[i];     //wenn v und w gleich sind kommt ihr 0 raus sonst
-                                //kommt die ASCII-Differenz der letzten zeichen
+        return v[i] - w[i];
 }
