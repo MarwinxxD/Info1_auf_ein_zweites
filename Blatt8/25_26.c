@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <ctype.h>
+#include <string.h>
 
 #define CODE_LENGTH 4
 #define MAX_ATTEMPTS 10
@@ -15,8 +17,53 @@ void flush();
 int evaluate_guess(const int code[], const int guess[], int result[]);
 
 int main(void) {
+	int code[CODE_LENGTH];
+	char input_str[CODE_LENGTH + 5];
+	int input[CODE_LENGTH];
+	int result[2];
+	int try, input_valid, i;
+
 	srand(time(NULL));
 
+	generate_code(code);
+
+	printf("Errate den geheimen Code\n");
+	printf("Sie haben 10 Versuche\n");
+	printf("------------------------\n\n");
+
+	for(try = 0; try < MAX_ATTEMPTS; try++) {
+		printf("Dein %d. Versuch:\nBitte geben Sie eine 4 stellige Zahl ein:\n\n", (try + 1));
+		input_valid = read_guess(input_str);
+
+		if(input_valid == INPUT_CHAR) {
+			printf("Ungueltige Eingabe! Bitte nur Zahlen eingeben\n");
+			continue;
+		} else if(input_valid == INVALID_LENGTH) {
+			printf("Ungueltige Eingabe! Bitte geben sie genau 4 Zahlen ein.\n");
+			continue;
+		}
+
+		for(i = 0; i < CODE_LENGTH; i++) {
+			input[i] = input_str[i] - '0';
+		}
+
+		if(evaluate_guess(code, input, result)) {
+			printf("Herzlichen Glueckwunsch!! Sie haben den Code erraten\n");
+			break;
+		} else {
+			printf("Anzahl der korrekten Zahlen an der richtigen Position: %d\n"), result[0];
+			printf("Anzahl der korrekten Zahlen an der falschen Position %d\n"), result[1];
+		}
+	}
+
+	if(try == MAX_ATTEMPTS) {
+		printf("\nLeider haben sie den Code nicht erraten. Der Code war: ");
+		for(i = 0; i < CODE_LENGTH; i++) {
+			printf("%d", code[i]);
+		}
+	}
+
+	printf("\nDanke fürs spielen!\n");
 	return 0;
 }
 
@@ -67,5 +114,5 @@ int evaluate_guess(const int code[], const int guess[], int results[]) {
     	for (i = 0; i < 10; i++) {
         	results[1] += (code_count[i] < guess_count[i] ? code_count[i] : guess_count[i]);
     	}
-	return 0;
+	return result[0] == CODE_LENGTH;
 }
