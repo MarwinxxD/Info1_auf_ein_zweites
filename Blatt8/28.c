@@ -69,7 +69,7 @@ int read_vector(double p[]) {
     p[n] = temp;
 
     own_flush();
-    if (n != 2) {
+    if (n != DIM - 1) {
         printf("Warum gibst du weniger als drei Werte ein, du Dulli \n");
         return 1;
     }
