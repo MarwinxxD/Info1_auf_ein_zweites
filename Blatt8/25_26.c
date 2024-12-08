@@ -51,8 +51,8 @@ int main(void) {
 			printf("Herzlichen Glueckwunsch!! Sie haben den Code erraten\n");
 			break;
 		} else {
-			printf("Anzahl der korrekten Zahlen an der richtigen Position: %d\n"), result[0];
-			printf("Anzahl der korrekten Zahlen an der falschen Position %d\n"), result[1];
+			printf("Anzahl der korrekten Zahlen an der richtigen Position: %d\n", result[0]);
+			printf("Anzahl der korrekten Zahlen an der falschen Position %d\n", result[1]);
 		}
 	}
 
@@ -95,6 +95,7 @@ int read_guess(char guess[]) {
 		flush();
 		return INVALID_LENGTH;
 	}
+	return VALID_INPUT;
 }
 
 int evaluate_guess(const int code[], const int guess[], int results[]) {
@@ -104,7 +105,7 @@ int evaluate_guess(const int code[], const int guess[], int results[]) {
 
     	for (i = 0; i < CODE_LENGTH; i++) {
         	if (code[i] == guess[i]) {
-            		result[0]++;
+            		resultis[0]++;
         	} else {
          		code_count[code[i]]++;
             		guess_count[guess[i]]++;
@@ -114,5 +115,5 @@ int evaluate_guess(const int code[], const int guess[], int results[]) {
     	for (i = 0; i < 10; i++) {
         	results[1] += (code_count[i] < guess_count[i] ? code_count[i] : guess_count[i]);
     	}
-	return result[0] == CODE_LENGTH;
+	return results[0] == CODE_LENGTH;
 }
