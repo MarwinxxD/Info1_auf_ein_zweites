@@ -1,6 +1,7 @@
 #include <math.h>
 #include <stdio.h>
 #define DIM 3
+#define x 30 /*so viele Stellen kann die Dezimalzahl innerhalb des Vektors haben*/
 
 int read_vector(double p[]);
 void add_vectors(double p1[], double p2[]);
@@ -19,13 +20,13 @@ int main() {
     }
 
     while(i < DIM) {
-        printf("%lf ", p1[i]);
+        printf("%f ", p1[i]);
         i++;
     }
     printf("\n");
     i = 0;
     while(i < DIM) {
-        printf("%lf ", p2[i]);
+        printf("%f ", p2[i]);
         i++;
     }
     printf("\n");
@@ -34,22 +35,23 @@ int main() {
     add_vectors(p1, p2);
 
     while(i < DIM) {
-        printf("%lf ", p1[i]);
+        printf("%f ", p1[i]);
         i++;
     }
     printf("\n");
 
-    printf("%lf", vector_length(p1));
+    printf("%f", vector_length(p1));
 
     return 0;
 }
 
 int read_vector(double p[]) {
-    char input[DIM];
-    int i = 0, n = 0, temp = 0, ret = 1;
+    /*+1 für die ';' dazwischen*/
+    char input[DIM * x + 1];
+    int i = 0, n = 0, temp = 0;
 
     printf("Type three numbers separated by ';': \n");
-    scanf("%s", &input);
+    scanf("%s", input);
 
     while(input[i] != '\0') {
         if (n > DIM - 1) {
@@ -65,7 +67,7 @@ int read_vector(double p[]) {
 
         i++;
     }
-    // weil man mit der while-Bedingung den letzen value nicht mehr einließt
+    /* weil man mit der while-Bedingung den letzen value nicht mehr einließt*/
     p[n] = temp;
 
     own_flush();
