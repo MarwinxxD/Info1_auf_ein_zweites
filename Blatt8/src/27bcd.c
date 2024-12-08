@@ -45,7 +45,7 @@ int main(void){
         e = read_string(in);
        
         if(e == NICHT_ERFOLG){
-                printf("\nBAKAAA-sama du hast mir zu viele Zeichen ubergeben ＼(｀0´)／");
+                printf("\nBAKAAA-sama du hast mir zu viele Zeichen ubergeben grrrrrr");
         }
         else printf("\nDu hast %i Worter geschrieben, CHUUUUUUU", count_words(in));
         
