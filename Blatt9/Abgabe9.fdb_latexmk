@@ -1,9 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1734129760.64784 "d:/Programmierstuff/Info1_auf_ein_zweites/Blatt9/Abgabe9.tex" "Abgabe9.pdf" "Abgabe9" 1734129761.98573 0
+["pdflatex"] 1734130369.77483 "d:/Programmierstuff/Info1_auf_ein_zweites/Blatt9/Abgabe9.tex" "Abgabe9.pdf" "Abgabe9" 1734130371.04125 0
   "32b.png" 1734129630 42426 6c608cb7ecddcd4778b9a3a10b2adac9 ""
   "32c.png" 1734129690 61137 a449f7160179e09f72b63c4dd903ab25 ""
-  "Abgabe9.aux" 1734129761 692 f0462c541a6c24a821a26847cb638051 "pdflatex"
-  "Abgabe9.tex" 1734129758 4700 cb3a9dc2c15f72869604a1190ed7ef05 ""
+  "Abgabe9.aux" 1734130370 692 f0462c541a6c24a821a26847cb638051 "pdflatex"
+  "Abgabe9.tex" 1734130369 4699 0fad5b52e97565a2772e04db591c649f ""
   "C:/Users/Erik/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1734129211 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/Erik/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi375/ectt0800.pk" 1731342120 9920 2196dd316e002fb39b2c8ffa4098ce77 ""
   "C:/Users/Erik/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1000.pk" 1731342130 25420 92b1cae17e3a975da09b038ba38f4bb6 ""
@@ -102,7 +102,7 @@
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/tex/latex/setspace/setspace.sty" 1670403145 22490 8cac309b79a4c53a4ffce4b1b07aead0 ""
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/tex/latex/tools/calc.sty" 1700599895 10214 547fd4d29642cb7c80bf54b49d447f01 ""
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "d:/Programmierstuff/Info1_auf_ein_zweites/Blatt9/Abgabe9.tex" 1734129758 4700 cb3a9dc2c15f72869604a1190ed7ef05 ""
+  "d:/Programmierstuff/Info1_auf_ein_zweites/Blatt9/Abgabe9.tex" 1734130369 4699 0fad5b52e97565a2772e04db591c649f ""
   "src/30.c" 1734128350 907 636912e9ff60ee87806c6a29268cc6cd ""
   "src/30.h" 1734129191 217 81289777e833b63a7ce975aef218fe6b ""
   "src/32a1.c" 1734128350 55 ffd94f32996f0b15777869cd69a9515e ""
