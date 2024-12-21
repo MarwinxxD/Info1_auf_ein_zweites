@@ -27,7 +27,7 @@ int *array_d_intersection(int *a, int size_a, int *b, int size_b, int *intersect
                                 intersection = realloc(intersection, (sizeof(intersection) + 1) * sizeof(int));
                                 intersection[x] = a[i];
                                 x++;              
-                                intersected_size = x;          /*ab hier keine ausgabe mehr möglich, kp warum, weil du den pointer verändert hast und nocht den Wert auf den der Pointer Zeigt du Vogel*/
+                                intersected_size = x;          /*ab hier keine ausgabe mehr möglich, kp warum -> weil du den pointer verändert hast und nicht den Wert auf den der Pointer zeigt du Vogel*/
                                 printf("hello");
                         }
                 }
