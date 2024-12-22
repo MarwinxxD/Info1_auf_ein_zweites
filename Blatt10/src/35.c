@@ -19,15 +19,15 @@ int *array_d_filter_even(int *a, int size, int *filterd_size){
 int *array_d_intersection(int *a, int size_a, int *b, int size_b, int *intersected_size){
         int i, n, x = 0;
         int *intersection = malloc(sizeof(int));
-        for( i = 0; i <= size_a; i++){
+        for(i = 0; i <= size_a; i++){
                 for(n = 0; n <= size_b; n++){
                         
-                        if(a[i] == b[n]){
+                        if(a[i] == b[n]) {
                                 
                                 intersection = realloc(intersection, (sizeof(intersection) + 1) * sizeof(int));
                                 intersection[x] = a[i];
                                 x++;              
-                                *intersected_size = x;          /*ab hier keine ausgabe mehr möglich, kp warum*/
+                                intersected_size = x;          /*ab hier keine ausgabe mehr möglich, kp warum -> weil du den pointer verändert hast und nicht den Wert auf den der Pointer zeigt du Vogel*/
                                 printf("hello");
                         }
                 }
