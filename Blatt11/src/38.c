@@ -1,4 +1,4 @@
-#include<stdio.h>                               /*UNFERTIG!!!!!!!!!!!!!!!!!!!!!!!!!*/
+#include<stdio.h>                              
 #include<string.h>
 
 int uThere(char x, const char *p){
