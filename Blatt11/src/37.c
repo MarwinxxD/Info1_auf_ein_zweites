@@ -27,7 +27,6 @@ int normalize_array(double *v, int v_len){
     double *max = max_value(v, v_len);
     double mm = *max - *min;
     int i;
-    printf("\n%f %f %f", *max, *min, mm);
     
     if(v == NULL) return -1;
     if(*max - *min <= DBL_EPSILON){
