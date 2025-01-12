@@ -24,7 +24,7 @@ int is_valid_number(const char *str) {
     return 1;
 }
 
-//also eigentlich kann ich ja alles hier verändern, ich darf ja nur "matrix.h" und "matrix-main.h" nicht verändern, "matrix-main.c" wird nie angesprochen.
+/*also eigentlich kann ich ja alles hier verändern, ich darf ja nur "matrix.h" und "matrix-main.h" nicht verändern, "matrix-main.c" wird nie angesprochen.*/
 int main(void) {
     int i, j, k, sum;
     int **A = NULL, **B = NULL, **C = NULL;
@@ -218,94 +218,122 @@ int matrix_add(int rowsA, int colsA, int **A, int rowsB, int colsB, int **B, int
     int n = 0;
     
     if(!(rowsA == rowsB && colsA == colsB)) {
-        return 1;
+        return MATRIX_DIM_ERR;
     }
-    //else call, kann man spaaren, da im if case returnt wird
-    for(i = 0; i < rows; i++) {
-        for(n = 0; n < cols; n++) {
+
+    if(A == NULL || B == NULL || C == NULL) {
+        return MATRIX_MEM_ERR;
+    }
+
+    for(i = 0; i < rowsA; i++) {
+        for(n = 0; n < colsA; n++) {
             C[i][n] = A[i][n] + B[i][n];
         }
     }
-    return 0;
+    return MATRIX_VALID;
 }
 
+/*warum wird hier auf NULL gecheckt, obwohl das nicht in der Aufgabe steht?*/
 int matrix_transpose(int rows, int cols, int **A, int **T) {
-    int i = 0;
-    int n = 0;
+    int i, n;
+
+    if(A == NULL || T == NULL) {
+        return MATRIX_MEM_ERR;
+    }
     
     for(i = 0; i < rows; i++) {
         for(n = 0; n < cols; n++) {
             T[n][i] = A[i][n];
         }
     }
-    return 0; //?????????
+    return MATRIX_VALID; /*?????????*/
 }
 
+/*warum wird hier auf NULL gecheckt, obwohl das nicht in der Aufgabe steht?*/
 int matrix_multiply(int rowsA, int colsA, int **A, int rowsB, int colsB, int **B, int **C) {
     int i, n, k;
 
-    for (int i = 0; i < rowsA; i++) {
-        for (int n = 0; n < colsB; n++) {
-            for (int k = 0; k < rowsB; k++) {
+    /*warum steht nirgends, das man dafür checken muss?*/
+    if(!(rowsA == colsB && colsA == rowsB)) {
+        return MATRIX_DIM_ERR;
+    }
+
+    if(A == NULL || B == NULL || C == NULL) {
+        return MATRIX_MEM_ERR;
+    }
+
+    for (i = 0; i < rowsA; i++) {
+        for (n = 0; n < colsB; n++) {
+            for (k = 0; k < rowsB; k++) {
                 C[i][n] += A[i][k] * B[k][n];
             }
         }
     }
-    return 0; //?????????
+    return MATRIX_VALID; /*?????????*/
 }
 
+/*warum wird hier auf NULL gecheckt, obwohl das nicht in der Aufgabe steht?*/
 int matrix_randomize(int rows, int cols, int **matrix) {
-    int i = 0;
-    int n = 0;
+    int i, n, r;
+
+    if(matrix == NULL) {
+        return MATRIX_MEM_ERR;
+    }
 
     srand(time(NULL));
-    int r = rand() % 10;
+    r = rand() % 10;
     
     for(i = 0; i < rows; i++) {
         for(n = 0; n < cols; n++) {
             matrix[i][n] = r;
         }
     }
-    return 0; //???????????
+    return MATRIX_VALID; /*?????????*/
 }
 
+/*warum wird hier auf NULL gecheckt, obwohl das nicht in der Aufgabe steht?*/
 int matrix_print(int rows, int cols, int **matrix) {
-    int i = 0;
-    int n = 0;
+    int i, n;
 
-    for (i = 0; i < rows; o++)
-    {
+    if(matrix == NULL) {
+        return MATRIX_MEM_ERR;
+    }
+
+    for (i = 0; i < rows; i++) {
         for(n = 0; n < cols; n++)
             {
-                printf("%d     ", matrix[row][column]);
+                printf("%d     ", matrix[i][n]);
             }
         printf("\n");
     }
-    return 0; //????????
+    return MATRIX_VALID; /*?????????*/
 }
 
 int **matrix_allocate(int rows, int cols) {
-    int** ret;
-    int i, int n;
+    int** ret = malloc((sizeof(int*) * rows) + (sizeof(int*) * cols));
+    int i;
 
-    if(ret = malloc((sizeof(int*) * rows) + (sizeof(int*) * cols)) == NULL) {
+    if(ret == NULL) {
         return NULL;
     }
     for(i = 0; i < rows; i++) {
-        if(ret[i] = malloc(sizeof(int) * cols) == NULL) {
-            return NULL
+        ret[i] = malloc(sizeof(int) * cols);
+        if(ret[i] == NULL) {
+            return NULL;
         }
     }
     return ret;
 }
 
 void matrix_free(int **matrix, int rows) {
+    int i;
+
     if(matrix == NULL) {
-        //hihi, haha
+        /*hihi, haha*/
     } else {
         for(i = 0; i < rows; i++) {
-        matrix[rows].free();
+        free(matrix[rows]);
         }
-        matrix.free();
+        free(matrix);
     }
 }
